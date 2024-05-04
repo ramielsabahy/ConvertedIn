@@ -35,3 +35,4 @@ class UserServiceTest extends TestCase
         }
     }
 }
+
