@@ -8,13 +8,12 @@ npm install
 npm run dev
 
 echo "migrating tables"
-php artisan migrate
+./vendor/bin/sail artisan migrate
 
 echo "seeding data"
-php artisan db:seed
+./vendor/bin/sail artisan db:seed
 
 echo "Server Ready"
-php artisan serve
-
+./vendor/bin/sail up -d
 echo "Queue Started"
-php artisan queue:work
+./vendor/bin/sail artisan queue:work

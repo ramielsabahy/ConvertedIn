@@ -7,13 +7,28 @@ composer install
 npm install
 npm run dev
 
-echo "migrating tables"
-./vendor/bin/sail artisan migrate
+# config name database
+sed -i -e 's/DB_DATABASE=laravel//g' .env
+echo -n "Enter a database name > "
+read database
+sed  -i "12i  DB_DATABASE=$database" .env
 
-echo "seeding data"
-./vendor/bin/sail artisan db:seed
+# config username
+sed -i -e 's/DB_USERNAME=root//g' .env
+echo -n "Enter a  username > "
+read username
+sed  -i "12i  DB_DATABASE=$username" .env
+
+# config password
+sed -i -e 's/DB_PASSWORD=//g' .env
+echo -n "Enter  password > "
+read password
+sed  -i "12i  DB_DATABASE=$password" .env
 
 echo "Server Ready"
-./vendor/bin/sail up -d
+sudo php artisan serve &
+echo "Migration Started"
+sudo php artisan migrate &
+echo "migration Finished Successfully"
 echo "Queue Started"
-./vendor/bin/sail artisan queue:work
+sudo php artisan queue:work --daemon --timeout=3000 &
