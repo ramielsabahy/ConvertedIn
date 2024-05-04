@@ -20,7 +20,7 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title(),
+            'title' => 'Task number',
             'description' => fake()->text(),
             'assigned_by_id' => User::first()->id,
             'assigned_to_id' => User::first()->id

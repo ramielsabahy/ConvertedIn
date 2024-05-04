@@ -9,6 +9,6 @@
 @endsection
 
 
-@section('js')
-
+@section('page')
+Tasks
 @endsection
