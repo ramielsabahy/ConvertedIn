@@ -5,7 +5,7 @@ cp .env.example .env
 composer install
 
 npm install
-npm run dev
+npm run build
 
 # config name database
 sed -i -e 's/DB_DATABASE=laravel//g' .env
@@ -17,13 +17,13 @@ sed  -i "12i  DB_DATABASE=$database" .env
 sed -i -e 's/DB_USERNAME=root//g' .env
 echo -n "Enter a  username > "
 read username
-sed  -i "12i  DB_DATABASE=$username" .env
+sed  -i "12i  DB_USERNAME=$username" .env
 
 # config password
 sed -i -e 's/DB_PASSWORD=//g' .env
 echo -n "Enter  password > "
 read password
-sed  -i "12i  DB_DATABASE=$password" .env
+sed  -i "12i  DB_PASSWORD=$password" .env
 
 echo "Server Ready"
 sudo php artisan serve &
