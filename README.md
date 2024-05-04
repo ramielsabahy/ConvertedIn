@@ -2,7 +2,7 @@
 
 ## ConvertedIn Task
 
-## Installation Steps
+## Installation Steps (I prefer having docker and using `sh InstallWithDocker.sh`)
 - If you are using docker run this command on linux or mac `sh InstallWithDocker.sh`
 - If you are not using docker run this command on linux or mac `sh Install.sh`
 - Else you can install using the way with docker and sail

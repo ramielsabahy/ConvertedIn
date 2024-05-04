@@ -7,28 +7,21 @@ composer install
 npm install
 npm run build
 
-# config name database
-sed -i -e 's/DB_DATABASE=laravel//g' .env
-echo -n "Enter a database name > "
-read database
-sed  -i "12i  DB_DATABASE=$database" .env
+# Prompt the user for database credentials
+read -p "Enter your database name (DB_DATABASE): " db_name
+read -p "Enter your database username (DB_USERNAME): " db_username
+read -sp "Enter your database password (DB_PASSWORD): " db_password
+echo
 
-# config username
-sed -i -e 's/DB_USERNAME=root//g' .env
-echo -n "Enter a  username > "
-read username
-sed  -i "12i  DB_USERNAME=$username" .env
-
-# config password
-sed -i -e 's/DB_PASSWORD=//g' .env
-echo -n "Enter  password > "
-read password
-sed  -i "12i  DB_PASSWORD=$password" .env
+# Update the .env file with database credentials
+sed -i "s/DB_DATABASE=.*/DB_DATABASE=$db_name/" .env
+sed -i "s/DB_USERNAME=.*/DB_USERNAME=$db_username/" .env
+sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=$db_password/" .env
 
 echo "Server Ready"
-sudo php artisan serve &
+php artisan serve &
 echo "Migration Started"
-sudo php artisan migrate &
+php artisan migrate &
 echo "migration Finished Successfully"
 echo "Queue Started"
-sudo php artisan queue:work --daemon --timeout=3000 &
+php artisan queue:work --daemon --timeout=3000 &
