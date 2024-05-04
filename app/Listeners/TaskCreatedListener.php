@@ -22,6 +22,6 @@ class TaskCreatedListener
      */
     public function handle(TaskCreatedEvent $event): void
     {
-        $this->taskService->incrementUserTasks($event->user);
+
     }
 }

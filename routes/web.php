@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\StatisticsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +23,9 @@ Route::group([
     config('jetstream.auth_session'),
     'verified',
     'namespace' => 'App\Http\Controllers',
-    'name'  => 'tasks.'
 ], function (){
-    Route::resource('tasks', TaskController::class);
+    Route::group(['name' => 'tasks.'], function () {
+        Route::resource('tasks', TaskController::class);
+    });
+    Route::get('statistics', 'StatisticsController@index')->name('statistics');
 });

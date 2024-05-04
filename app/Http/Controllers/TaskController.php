@@ -13,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('tasks.tasks');
+        return view('tasks.index');
     }
 
     /**
@@ -21,8 +21,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $assignees = User::query()->limit(100)->get();
-        return view('tasks.create', compact('assignees'));
+        return view('tasks.create');
     }
 
     /**
