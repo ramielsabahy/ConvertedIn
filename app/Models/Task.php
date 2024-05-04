@@ -12,6 +12,8 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     protected static function newFactory(): Factory
     {
         return TaskFactory::new();

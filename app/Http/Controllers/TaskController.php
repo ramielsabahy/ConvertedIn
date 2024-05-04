@@ -13,8 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.tasks', compact('tasks'));
+        return view('tasks.tasks');
     }
 
     /**
