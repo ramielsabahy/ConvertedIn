@@ -12,7 +12,7 @@
   - `npm install`
   - `npm run dev`
 
-### The Project is hosted on AWS and you can access it here [http://18.133.223.110](http://18.133.223.110)
+### The Project is hosted on AWS and you can access it here [http://3.8.182.224/](http://3.8.182.224/)
 
 
 ## Technologies used in this project
